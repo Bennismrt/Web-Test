@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.listProduct{
+  background-color: white;
+  flex-direction: column;
+  position: absolute;
+  display: block;
+  top: 50px;
+  right: 0;
+  width: 130px;
+  height: 18vh;
+  display: none;
+  visibility: hidden;
+  transform: translateY(0%);
+  transition: 0.1s;
+  z-index: 12;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.llistProductActive{
+  transform: translateY(0%);
+  visibility: visible;
+}
+
+.listBarber{
+  display: none;
+  visibility: hidden;
+}
+.listBarberActive{
+  transform: translateY(0%);
+  visibility: visible;
+}
+
+.logout {
+  display: none;
+}
+.logoutActive{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  z-index: 2;
+  justify-content: center;
+}
+.dropdownLogout{
+  display: none;
+}
+.dropdownLogoutActive{
+  position: absolute;
+  background-color: bisque;
+  width: 8rem;
+  height: 3rem;
+  top: 45px;
+  border-radius: 5px;
+  z-index: 2;
+  right: -2px;
+  display: flex;
+  color: black;
+}
+
+.message{
+  display: none;
+}
+.messageActive{
+  background-color: #06b6d4;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  width: 24rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  position: fixed;
+  top: 4rem;
+  left: 35%;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
