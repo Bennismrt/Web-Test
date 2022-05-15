@@ -38,12 +38,10 @@ const Booking = () => {
     const [msg, setMsg] = useState();
     const [popupMsg, setPopupMsg] = useState("message");
     const [loading, setLoading] = useState (false);
-    const [val, setVal] = useState("")
 
     const axiosPrivate = AxiosAuth ();
     
     const CreateBooking = async(e) => {
-        console.log(val);
         e.preventDefault();
         if(!idProduct){
             setPopupMsg("messageActive");
@@ -57,6 +55,9 @@ const Booking = () => {
         }else if(!time){
             setPopupMsg("messageActive");
             setMsg("*please select time");
+        }else if(!payment && payment === null || payment === undefined){
+            setPopupMsg("messageActive");
+            setMsg("*please select payment");
         }else{
             try {
                 const res = await axiosPrivate.post ('/booking/create-booking', {
@@ -257,10 +258,11 @@ const Booking = () => {
                     <div className='flex flex-row items-center shadow-xl before:w-2 before:h-24 before:bg-cyan-500 mt-4' >
                     <label className='mx-4 font-bold'>Choose your payment method :</label>
                     <select onChange={Payment} className='outline-none p-2 border-2 rounded-lg'>
+                        <option value="Gopay" disabled selected hidden>None</option>
                         <option value="Gopay" disabled>Gopay (Coming Soon)</option>
                         <option value="OVO">OVO</option>
                         <option value="Shopeepay">Shopee pay</option>
-                        <option value="Tunai" selected>Tunai</option>
+                        <option value="Tunai">Tunai</option>
                     </select>
                     </div>
                 </div>
